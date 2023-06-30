@@ -7,9 +7,9 @@
       "*": ["src/*"],
       "tests": ["tests/*"],
       "@components/*": ["src/components/*"],
-      "@screens/*": ["src/screens/*"],
+      "@screens": ["src/screens"],
       "@services/*": ["src/services/*"],
-      "@utils/*": ["src/utils/*"],
+      "@util/*": ["src/util/*"],
     },
   }
 }

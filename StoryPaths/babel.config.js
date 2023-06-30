@@ -11,9 +11,10 @@ module.exports = {
           '@components': './src/components',
           '@screens': './src/screens',
           '@services': './src/services',
-          '@utils': './src/utils',
+          '@util': './src/util',
         },
       },
     ],
+    ['import-glob', {}],
   ],
 };
