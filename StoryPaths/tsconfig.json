@@ -12,4 +12,6 @@
       "@util/*": ["src/util/*"],
     },
   }
+{
+  "extends": "@tsconfig/react-native/tsconfig.json"
 }
