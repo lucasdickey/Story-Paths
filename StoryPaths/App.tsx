@@ -25,15 +25,12 @@ import {
   ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen';
 
-import { generateStory } from './src/openAiService';
-
 type SectionProps = PropsWithChildren<{
   title: string;
 }>;
 
 function Section({children, title}: SectionProps): JSX.Element {
   const isDarkMode = useColorScheme() === 'dark';
-  const story = generateStory();
   return (
     <View style={styles.sectionContainer}>
       <Text
@@ -43,7 +40,7 @@ function Section({children, title}: SectionProps): JSX.Element {
             color: isDarkMode ? Colors.white : Colors.black,
           },
         ]}>
-        {`${story}`}
+        {title}
       </Text>
       <Text
         style={[
