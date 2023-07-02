@@ -1,4 +1,3 @@
-import './App.css';
 import styles from './components/Styles';
 
 const StoryDisplay = ({ story }) => {

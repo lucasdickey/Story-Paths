@@ -30,6 +30,7 @@ const App = () => {
         contentInsetAdjustmentBehavior="automatic"
         style={styles.scrollView}>
         <View style={styles.body}>
+          <p>testing stuff</p>
           <InputForm />
           <StoryDisplay />
         </View>
