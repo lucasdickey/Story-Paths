@@ -1,10 +1,3 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- *
- * @format
- */
-
 import React from 'react';
 import type {PropsWithChildren} from 'react';
 import {
@@ -25,7 +18,7 @@ import {
   ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen';
 
-import './App.css';
+import styles from './components/Styles';
 import Form from './components/InputForm';
 import StoryDisplay from './components/StoryDisplay';
 

@@ -1,5 +1,4 @@
-
-import './App.css';
+import styles from './components/Styles';
 
 const App = () => {
     const [formData, setFormData] = useState({
