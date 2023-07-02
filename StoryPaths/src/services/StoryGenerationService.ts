@@ -1,3 +1,3 @@
 export function generateStory() {
-  return 'Randdomly generated story';
+  return 'Randomly generated story';
 }
