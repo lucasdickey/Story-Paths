@@ -18,7 +18,7 @@ import {
   ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen';
 
-import styles from './components/Styles';
+// import styles from './components/Styles';
 import Form from './components/InputForm';
 import StoryDisplay from './components/StoryDisplay';
 

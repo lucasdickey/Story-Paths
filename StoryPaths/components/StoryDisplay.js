@@ -1,4 +1,4 @@
-import styles from './components/Styles';
+// import styles from './components/Styles';
 
 const StoryDisplay = ({ story }) => {
     return (
