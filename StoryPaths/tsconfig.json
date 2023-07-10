@@ -1,4 +1,3 @@
-
 {
   "extends": "@tsconfig/react-native/tsconfig.json",
   "compilerOptions": {
@@ -7,7 +6,9 @@
       "*": ["src/*"],
       "tests": ["tests/*"],
       "@components/*": ["src/components/*"],
-      "@screens": ["src/screens"],
+      "@config/*": ["src/config/*"],
+      "@navigation/*": ["src/navigation/*"],
+      "@screens/*": ["src/screens/*"],
       "@services/*": ["src/services/*"],
       "@util/*": ["src/util/*"],
     },
