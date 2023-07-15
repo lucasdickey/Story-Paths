@@ -30,23 +30,10 @@ type SectionProps = PropsWithChildren<{
 }>;
 
 export default function HomeScreen(): JSX.Element {
-  const isDarkMode = useColorScheme() === 'dark';
-
-  const backgroundStyle = {
-    backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
-  };
-
   return (
-    <View style={backgroundStyle}>
-      <ScrollView
-        contentInsetAdjustmentBehavior="automatic"
-        style={backgroundStyle}>
-        <View
-          style={{
-            backgroundColor: isDarkMode ? Colors.black : Colors.white,
-          }}>
-          <StoryForm></StoryForm>
-        </View>
+    <View>
+      <ScrollView contentInsetAdjustmentBehavior="automatic">
+        <StoryForm></StoryForm>
       </ScrollView>
     </View>
   );
