@@ -22,10 +22,9 @@ const pressStyle = ({pressed}: PressableStateCallbackType) => [
 
 const styles = StyleSheet.create({
   button: {
-    height: 40,
+    height: 50,
     margin: 12,
-    borderWidth: 1,
-    padding: 10,
+    borderWidth: 2,
   },
 });
 

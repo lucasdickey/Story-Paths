@@ -11,7 +11,7 @@ const StoryFieldInput = (props: StoryFieldInputProps) => {
     <>
       <Text>{props.label}</Text>
       <TextInput {...props} style={styles.input} />
-      <Text>{props.caption}</Text>
+      <Text style={styles.caption}>{props.caption} </Text>
     </>
   );
 };
@@ -22,6 +22,10 @@ const styles = StyleSheet.create({
     margin: 12,
     borderWidth: 1,
     padding: 10,
+  },
+  caption: {
+    paddingBottom: 15,
+    paddingLeft: 15,
   },
 });
 
