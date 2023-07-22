@@ -1,4 +1,4 @@
-import { OpenAIService } from "@services/OpenAIService";
+import { OpenAiService } from "services/OpenAiService";
 
 const STORY_GENERATOR_MODEL = 'text-davinci-003';
 const STORY_GENERATOR_MAX_TOKENS = 1024;
@@ -6,7 +6,7 @@ const STORY_GENERATOR_TEMPERATURE = 0.3;
 const STORY_GENERATOR_N = 1;
 
 function createStory(prompt: string) {
-  return OpenAIService.createCompletion({
+  return OpenAiService.createCompletion({
     model: STORY_GENERATOR_MODEL,
     prompt: prompt,
     max_tokens: STORY_GENERATOR_MAX_TOKENS,

@@ -49,6 +49,6 @@ function createImage(request: ImageRequest){
   );
 }
 
-export const OpenAIService = {
+export const OpenAiService = {
   createCompletion: createCompletion,
 }
