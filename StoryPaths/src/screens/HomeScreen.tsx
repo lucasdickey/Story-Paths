@@ -6,8 +6,8 @@
  */
 
 import StoryForm from '@components/StoryForm';
-import React from 'react';
-import type {PropsWithChildren} from 'react';
+import React, { useState, useEffect } from 'react';
+import type { PropsWithChildren } from 'react';
 import {
   ScrollView,
   StatusBar,
@@ -16,23 +16,34 @@ import {
   useColorScheme,
   View,
 } from 'react-native';
-
-import {
-  Colors,
-  DebugInstructions,
-  Header,
-  LearnMoreLinks,
-  ReloadInstructions,
-} from 'react-native/Libraries/NewAppScreen';
-
-type SectionProps = PropsWithChildren<{
-  title: string;
-}>;
+import { StoryGeneratorService } from '@services/StoryGeneratorService';
 
 export default function HomeScreen(): JSX.Element {
+  const [story, setStory] = useState<string>("");
+
+  // useEffect(() => {
+  //   StoryGeneratorService.createStory({
+  //     name: "John",
+  //     villain: "Adam",
+  //     sidekick: "Joey",
+  //     location: "Mars",
+  //     age: "5",
+  //     voice: "Dr. Seuss",
+  //     theme: "love",
+  //   }).then((story) => {
+  //     console.log(story);
+  //     setStory(story);
+  //   }).catch((error) => {
+  //     console.log("Error", error);
+  //   });
+  // }, []);
+
   return (
     <View>
       <ScrollView contentInsetAdjustmentBehavior="automatic">
+        <Text>
+          {story}
+        </Text>
         <StoryForm></StoryForm>
       </ScrollView>
     </View>

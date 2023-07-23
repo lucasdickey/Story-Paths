@@ -1,31 +1,32 @@
 const HEADERS = {
   'Accept': 'application/json',
+  'Content-Type': 'application/json',
 }
 
-function request(url: string, method: string, body?: object, headers?: object) {
-  return fetch(url, {
+const request = async <T>(url: string, method: string, body: object | undefined, headers: object | undefined): Promise<T> => {
+  const response = await fetch(url, {
     method: method,
     headers: { ...HEADERS, ...headers },
     body: JSON.stringify(body),
   })
-    .then(processResponse);
+
+  return await processResponse(response);
 }
 
-function processResponse(response: Response) {
-  if (response.ok) {
-    return response.json();
-  } else {
-    return response.json().then((error: any) => {
-      throw error;
-    });
+const processResponse = async <T>(response: Response): Promise<T> => {
+  try {
+    const body = await response.json();
+    return body;
+  } catch (error: any) {
+    throw error;
   }
 }
 
-function get(url: string, headers?: object) {
+const get = async <T>(url: string, headers?: object): Promise<T> => {
   return request(url, 'GET', undefined, headers);
 }
 
-function post(url: string, body: object, headers?: object) {
+const post = async <T>(url: string, body: object, headers: object): Promise<T> => {
   return request(url, 'POST', body, headers);
 }
 

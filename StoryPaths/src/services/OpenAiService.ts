@@ -1,7 +1,8 @@
 import { HttpService } from "@services/HttpService";
+import Config from "react-native-config";
 
-const OPENAI_API_KEY = process.env.OPENAI_API_KEY;
-const OPENAI_API_BASE_URL = 'https://api.openai.com/v1';
+const API_KEY = Config.OPEN_AI_API_KEY;
+const BASE_URL = 'https://api.openai.com/v1';
 
 interface CompletionRequest {
   model: string;
@@ -28,27 +29,40 @@ interface ImageRequest {
   user?: string;
 }
 
-function createCompletion(request: CompletionRequest) {
-  return HttpService.post(
-    `${OPENAI_API_BASE_URL}/completions`,
-    request,
-    { 'Authorization': `Bearer ${OPENAI_API_KEY}` }
-  );
+interface TextCompletion {
+  choices: Choice[];
+}
+interface Choice {
+  text: string;
 }
 
-function createChatCompletion(){
+const createCompletion = async (request: CompletionRequest) => {
+  const response: TextCompletion = await HttpService.post(
+    `${BASE_URL}/completions`,
+    request,
+    { 'Authorization': `Bearer ${API_KEY}` }
+  );
+  
+  return response;
+}
+
+const createChatCompletion = async (request: ChatCompletionRequest) => {
   // TODO: Implement this, as completions endpoint will be deprecated in 2024
   return null;
 }
 
-function createImage(request: ImageRequest){
-  return HttpService.post(
-    `${OPENAI_API_BASE_URL}/images`,
+const createImage = async (request: ImageRequest) => {
+  const response = HttpService.post(
+    `${BASE_URL}/images/generations`,
     request,
-    { 'Authorization': `Bearer ${OPENAI_API_KEY}` }
+    { 'Authorization': `Bearer ${API_KEY}` }
   );
+
+  return response;
 }
 
 export const OpenAiService = {
   createCompletion: createCompletion,
+  createChatCompletion: createChatCompletion,
+  createImage: createImage,
 }
