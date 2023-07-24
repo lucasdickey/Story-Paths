@@ -1,32 +1,44 @@
 import React from 'react';
-import { StyleSheet, Text, TextInput, TextInputProps, View } from 'react-native';
+import { StyleSheet, Text, TextInput, View } from 'react-native';
 
-interface StoryFieldInputProps extends TextInputProps {
+interface StoryFieldInputProps {
   label: string;
   caption: string;
+  placeholder: string;
+  value?: string;
+  onChangeText?: ((text: string) => void);
 };
 
 const StoryFieldInput = (props: StoryFieldInputProps) => {
   return (
-    <>
-      <Text>{props.label}</Text>
-      <TextInput {...props} style={styles.input} />
+    <View style={styles.container}>
+      <Text style={styles.label}>{props.label}</Text>
+      <TextInput placeholder={props.placeholder} style={styles.input} />
       <Text style={styles.caption}>{props.caption} </Text>
-    </>
+    </View>
   );
 };
 
 const styles = StyleSheet.create({
+  label: {
+    fontWeight: 'bold',
+    fontSize: 18,
+    color: '#000',
+    paddingBottom: 10,
+  },
   input: {
-    height: 40,
-    margin: 12,
     borderWidth: 1,
+    height: 40,
     padding: 10,
+    marginBottom: 12,
   },
   caption: {
-    paddingBottom: 15,
-    paddingLeft: 15,
+    fontSize: 12,
+    color: '#333333',
   },
+  container: {
+    padding: 5,
+  }
 });
 
 export default StoryFieldInput;

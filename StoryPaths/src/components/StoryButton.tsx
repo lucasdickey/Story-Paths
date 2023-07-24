@@ -1,15 +1,17 @@
 import React from 'react';
-import { StyleSheet, Pressable, Text, PressableStateCallbackType, PressableProps } from 'react-native';
+import { StyleSheet, Pressable, Text, PressableStateCallbackType, PressableProps, View } from 'react-native';
 
-interface StoryButtonProps extends PressableProps {
+interface StoryButtonProps {
   title: string;
 }
 
 const StoryButton = (props: StoryButtonProps) => {
   return (
-    <Pressable style={pressStyle} {...props}>
-      <Text>{props.title}</Text>
-    </Pressable>
+    <View style={{flexDirection: 'row', justifyContent: 'space-around'}}>
+      <Pressable style={pressStyle}>
+        <Text style={styles.text}>{props.title}</Text>
+      </Pressable>
+    </View>
   );
 };
 
@@ -23,8 +25,16 @@ const pressStyle = ({pressed}: PressableStateCallbackType) => [
 const styles = StyleSheet.create({
   button: {
     height: 50,
-    margin: 12,
-    borderWidth: 2,
+    justifyContent: 'center',
+    alignItems: 'center',
+    borderRadius: 5,
+    width: '80%',
+    marginBottom: 10,
+  },
+  text: {
+    fontSize: 18,
+    fontWeight: 'bold',
+    color: '#FFF',
   },
 });
 
