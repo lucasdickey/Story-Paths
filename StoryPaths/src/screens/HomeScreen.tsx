@@ -21,22 +21,22 @@ import { StoryGeneratorService } from '@services/StoryGeneratorService';
 export default function HomeScreen(): JSX.Element {
   const [story, setStory] = useState<string>("");
 
-  // useEffect(() => {
-  //   StoryGeneratorService.createStory({
-  //     name: "John",
-  //     villain: "Adam",
-  //     sidekick: "Joey",
-  //     location: "Mars",
-  //     age: "5",
-  //     voice: "Dr. Seuss",
-  //     theme: "love",
-  //   }).then((story) => {
-  //     console.log(story);
-  //     setStory(story);
-  //   }).catch((error) => {
-  //     console.log("Error", error);
-  //   });
-  // }, []);
+  useEffect(() => {
+    StoryGeneratorService.createStory({
+      name: "John",
+      villain: "Adam",
+      sidekick: "Joey",
+      location: "Mars",
+      age: "5",
+      voice: "Dr. Seuss",
+      theme: "love",
+    }).then((story) => {
+      console.log(story);
+      setStory(story);
+    }).catch((error) => {
+      console.log("Error", error);
+    });
+  }, []);
 
   return (
     <View>
