@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import { View, StyleSheet } from 'react-native';
 import StoryFieldInput from './StoryFieldInput';
 import StoryButton from './StoryButton';
 
@@ -15,12 +15,12 @@ const StoryForm = () => {
         <StoryFieldInput
           label="The villain"
           caption="Dragon, robot, vampire—oh my!"
-          placeholder='Enter a type of villain'
+          placeholder="Enter a type of villain"
         />
         <StoryFieldInput
           label="Child's age"
           caption="Sets age appropriateness of story content"
-          placeholder='5'
+          placeholder="5"
         />
         <StoryFieldInput
           label="Story setting"
@@ -30,10 +30,10 @@ const StoryForm = () => {
         <StoryFieldInput
           label="Author inspiration"
           caption="Inspirational voice for this story"
-          placeholder='Pick an inspirational author'
+          placeholder="Pick an inspirational author"
         />
       </View>
-      <StoryButton title='Create your story' />
+      <StoryButton title="Create your story" />
     </View>
   );
 };

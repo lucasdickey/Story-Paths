@@ -1,4 +1,4 @@
-import { OpenAiService } from "services/OpenAiService";
+import { OpenAiService } from '@services/OpenAiService';
 
 const STORY_GENERATOR_MODEL = 'text-davinci-003';
 const STORY_GENERATOR_MAX_TOKENS = 1024;
@@ -15,7 +15,15 @@ interface StoryPrompt {
   theme: string;
 }
 
-function generatePrompt({ name, villain, sidekick, location, age, voice, theme }: StoryPrompt) {
+function generatePrompt({
+  name,
+  villain,
+  sidekick,
+  location,
+  age,
+  voice,
+  theme,
+}: StoryPrompt) {
   return `
     Create a children's story with the following elements: 
     1) a hero named ${name},
@@ -36,10 +44,10 @@ const createStory = async (prompt: StoryPrompt) => {
     temperature: STORY_GENERATOR_TEMPERATURE,
     n: STORY_GENERATOR_N,
   });
-  
+
   return response.choices[0].text;
-}
+};
 
 export const StoryGeneratorService = {
   createStory: createStory,
-}
+};

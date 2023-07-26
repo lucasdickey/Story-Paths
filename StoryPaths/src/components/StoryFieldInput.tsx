@@ -6,8 +6,8 @@ interface StoryFieldInputProps {
   caption: string;
   placeholder: string;
   value?: string;
-  onChangeText?: ((text: string) => void);
-};
+  onChangeText?: (text: string) => void;
+}
 
 const StoryFieldInput = (props: StoryFieldInputProps) => {
   return (
@@ -38,7 +38,7 @@ const styles = StyleSheet.create({
   },
   container: {
     padding: 5,
-  }
+  },
 });
 
 export default StoryFieldInput;

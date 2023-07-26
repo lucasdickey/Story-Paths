@@ -1,5 +1,11 @@
 import React from 'react';
-import { StyleSheet, Pressable, Text, PressableStateCallbackType, PressableProps, View } from 'react-native';
+import {
+  StyleSheet,
+  Pressable,
+  Text,
+  PressableStateCallbackType,
+  View,
+} from 'react-native';
 
 interface StoryButtonProps {
   title: string;
@@ -7,7 +13,7 @@ interface StoryButtonProps {
 
 const StoryButton = (props: StoryButtonProps) => {
   return (
-    <View style={{flexDirection: 'row', justifyContent: 'space-around'}}>
+    <View style={styles.container}>
       <Pressable style={pressStyle}>
         <Text style={styles.text}>{props.title}</Text>
       </Pressable>
@@ -15,14 +21,18 @@ const StoryButton = (props: StoryButtonProps) => {
   );
 };
 
-const pressStyle = ({pressed}: PressableStateCallbackType) => [
+const pressStyle = ({ pressed }: PressableStateCallbackType) => [
   {
     backgroundColor: pressed ? 'rgb(75, 94, 241)' : 'rgb(122, 136, 245)',
   },
   styles.button,
-]
+];
 
 const styles = StyleSheet.create({
+  container: {
+    flexDirection: 'row',
+    justifyContent: 'space-around',
+  },
   button: {
     height: 50,
     justifyContent: 'center',

@@ -6,28 +6,28 @@ type AppRoutingConfig = {
   routes: {
     [screen: string]: {
       options: NativeStackNavigationOptions;
-    }
-  }
+    };
+  };
 };
 
 const RoutingConfig: AppRoutingConfig = {
-  initialRouteName: "Home",
+  initialRouteName: 'Home',
   screenOptions: {
-    headerTitleAlign: "center"
+    headerTitleAlign: 'center',
   },
   routes: {
-    "Home": {
+    Home: {
       options: {
-        "headerStyle": {
-          "backgroundColor": "#7A88F5"
+        headerStyle: {
+          backgroundColor: '#7A88F5',
         },
-        "headerTintColor": "#FFF",
-        "headerTitleStyle": {
-          "fontWeight": "bold"
-        }
-      }
-    }
-  }
+        headerTintColor: '#FFF',
+        headerTitleStyle: {
+          fontWeight: 'bold',
+        },
+      },
+    },
+  },
 };
 
 export default RoutingConfig;
