@@ -11,7 +11,7 @@ type AppRoutingConfig = {
 };
 
 const RoutingConfig: AppRoutingConfig = {
-  initialRouteName: 'Home',
+  initialRouteName: 'Story Paths', // <-- @sergio - I thought this would change the header on the first screen, but it did not
   screenOptions: {
     headerTitleAlign: 'center',
   },
