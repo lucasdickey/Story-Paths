@@ -1,10 +1,9 @@
 import StoryForm from 'components/StoryForm';
 import React from 'react';
 import { ScrollView, View } from 'react-native';
-import type { NativeStackScreenProps } from '@react-navigation/native-stack';
-import type { StackParamList } from 'navigation/StackNavigator';
+import type { StackScreenProps } from 'navigation/StackNavigator';
 
-type Props = NativeStackScreenProps<StackParamList, 'Home'>;
+type Props = StackScreenProps<'Home'>;
 
 export default function HomeScreen({}: Props): JSX.Element {
   return (

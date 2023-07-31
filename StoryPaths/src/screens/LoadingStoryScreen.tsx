@@ -1,10 +1,9 @@
 import React, { useEffect } from 'react';
 import { ScrollView, Text, View } from 'react-native';
 import { StoryGeneratorService } from 'services/StoryGeneratorService';
-import type { NativeStackScreenProps } from '@react-navigation/native-stack';
-import type { StackParamList } from 'navigation/StackNavigator';
+import type { StackScreenProps } from 'navigation/StackNavigator';
 
-type Props = NativeStackScreenProps<StackParamList, 'LoadingStory'>;
+type Props = StackScreenProps<'LoadingStory'>;
 
 export default function StoryLoadingScreen({
   navigation,

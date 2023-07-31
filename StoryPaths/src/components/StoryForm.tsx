@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
 import { View, StyleSheet } from 'react-native';
-import StoryFieldInput, { StoryFieldInputProps } from './StoryFieldInput';
-import StoryButton from './StoryButton';
+import StoryFieldInput, {
+  StoryFieldInputProps,
+} from 'components/StoryFieldInput';
+import StoryButton from 'components/StoryButton';
 import type { StoryPromptParams } from 'services/StoryGeneratorService';
-import { useNavigation } from '@react-navigation/native';
-import type { StackParamList } from 'navigation/StackNavigator';
-import type { NativeStackNavigationProp } from '@react-navigation/native-stack';
+import { useStackNavigation } from 'navigation/StackNavigator';
 
 type StoryFormInputs = {
   [Property in keyof StoryPromptParams]: string | undefined;
@@ -74,8 +74,8 @@ const inputField = (
   );
 };
 
-const StoryForm = () => {
-  const navigation = useNavigation<NativeStackNavigationProp<StackParamList>>();
+export default function StoryForm() {
+  const navigation = useStackNavigation();
 
   const [promptParams, setPromptParams] = useState<StoryFormInputs>({
     name: undefined,
@@ -110,7 +110,7 @@ const StoryForm = () => {
       <StoryButton title="Create your story" onPress={submitForm} />
     </View>
   );
-};
+}
 
 const styles = StyleSheet.create({
   formContainer: {
@@ -120,5 +120,3 @@ const styles = StyleSheet.create({
     marginBottom: 20,
   },
 });
-
-export default StoryForm;
