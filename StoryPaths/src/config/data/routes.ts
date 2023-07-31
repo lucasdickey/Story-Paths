@@ -1,15 +1,13 @@
 import { NativeStackNavigationOptions } from '@react-navigation/native-stack';
 import type { RouteParamList } from './route-params';
 
-type ScreenOptions = {
-  options: NativeStackNavigationOptions;
-};
-
 type AppRoutingConfig = {
   initialRouteName: keyof RouteParamList;
   screenOptions: NativeStackNavigationOptions;
   routes: {
-    [Property in keyof RouteParamList]: ScreenOptions;
+    [Property in keyof RouteParamList]: {
+      options: NativeStackNavigationOptions;
+    };
   };
 };
 
