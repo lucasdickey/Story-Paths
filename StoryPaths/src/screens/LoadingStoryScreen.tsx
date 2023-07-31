@@ -5,7 +5,7 @@ import type { StackScreenProps } from 'navigation/StackNavigator';
 
 type Props = StackScreenProps<'LoadingStory'>;
 
-export default function StoryLoadingScreen({
+export default function LoadingStoryScreen({
   navigation,
   route,
 }: Props): JSX.Element {
