@@ -1,7 +1,7 @@
 import React from 'react';
 import { StyleSheet, Text, TextInput, View } from 'react-native';
 
-interface StoryFieldInputProps {
+export interface StoryFieldInputProps {
   label: string;
   caption: string;
   placeholder: string;
@@ -13,7 +13,11 @@ const StoryFieldInput = (props: StoryFieldInputProps) => {
   return (
     <View style={styles.container}>
       <Text style={styles.label}>{props.label}</Text>
-      <TextInput placeholder={props.placeholder} style={styles.input} />
+      <TextInput
+        placeholder={props.placeholder}
+        style={styles.input}
+        onChangeText={props.onChangeText}
+      />
       <Text style={styles.caption}>{props.caption} </Text>
     </View>
   );

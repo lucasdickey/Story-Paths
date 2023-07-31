@@ -1,4 +1,4 @@
-import { HttpService } from '@services/HttpService';
+import { HttpService } from 'services/HttpService';
 import Config from 'react-native-config';
 
 const API_KEY = Config.OPEN_AI_API_KEY;

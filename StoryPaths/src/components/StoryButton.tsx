@@ -9,12 +9,13 @@ import {
 
 interface StoryButtonProps {
   title: string;
+  onPress?: () => void;
 }
 
 const StoryButton = (props: StoryButtonProps) => {
   return (
     <View style={styles.container}>
-      <Pressable style={pressStyle}>
+      <Pressable style={pressStyle} onPress={props.onPress}>
         <Text style={styles.text}>{props.title}</Text>
       </Pressable>
     </View>

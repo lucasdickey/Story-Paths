@@ -1,17 +1,20 @@
 import * as React from 'react';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import ScreenMapping from '@screens/ScreenMapping';
-import RoutingConfig from '@config/data/routes';
+import ScreenMapping from 'screens/ScreenMapping';
+import RoutingConfig from 'config/data/routes';
+import type { RouteParamList } from 'config/data/route-params';
 
-const Stack = createNativeStackNavigator();
+export type StackParamList = RouteParamList;
+
+const Stack = createNativeStackNavigator<StackParamList>();
 
 const stackScreen = (screenName: string) => {
   return (
     <Stack.Screen
       key={screenName}
-      name={screenName}
+      name={screenName as keyof StackParamList}
       component={ScreenMapping[screenName]}
-      options={RoutingConfig.routes[screenName].options}
+      options={RoutingConfig.routes[screenName as keyof StackParamList].options}
     />
   );
 };

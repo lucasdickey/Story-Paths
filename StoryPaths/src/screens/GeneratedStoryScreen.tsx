@@ -20,3 +20,20 @@ Future future features:
 5. Edit saved stories
 6. Print story as a book using Amazong self-serve or similar
 */
+
+import React from 'react';
+import { Text, View } from 'react-native';
+import type { NativeStackScreenProps } from '@react-navigation/native-stack';
+import type { StackParamList } from 'navigation/StackNavigator';
+
+type Props = NativeStackScreenProps<StackParamList, 'GeneratedStory'>;
+
+export default function GeneratedStoryScreen({ route }: Props): JSX.Element {
+  const { story } = route.params;
+
+  return (
+    <View>
+      <Text>{story}</Text>
+    </View>
+  );
+}
