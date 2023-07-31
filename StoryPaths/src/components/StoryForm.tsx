@@ -5,7 +5,7 @@ import StoryFieldInput, {
 } from 'components/StoryFieldInput';
 import StoryButton from 'components/StoryButton';
 import type { StoryPromptParams } from 'services/StoryGeneratorService';
-import { useStackNavigation } from 'navigation/StackNavigator';
+import { useNavigation } from 'navigation/StackNavigator';
 
 type StoryFormInputs = {
   [Property in keyof StoryPromptParams]: string | undefined;
@@ -75,7 +75,7 @@ const inputField = (
 };
 
 export default function StoryForm() {
-  const navigation = useStackNavigation();
+  const navigation = useNavigation();
 
   const [promptParams, setPromptParams] = useState<StoryFormInputs>({
     name: undefined,

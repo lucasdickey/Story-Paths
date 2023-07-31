@@ -7,13 +7,13 @@ import type {
   NativeStackScreenProps,
   NativeStackNavigationProp,
 } from '@react-navigation/native-stack';
-import { useNavigation } from '@react-navigation/native';
+import { useNavigation as useNav } from '@react-navigation/native';
 
 export type StackScreenProps<T extends keyof RouteParamList> =
   NativeStackScreenProps<RouteParamList, T>;
 
-export function useStackNavigation() {
-  return useNavigation<NativeStackNavigationProp<RouteParamList>>();
+export function useNavigation() {
+  return useNav<NativeStackNavigationProp<RouteParamList>>();
 }
 
 const Stack = createNativeStackNavigator<RouteParamList>();
