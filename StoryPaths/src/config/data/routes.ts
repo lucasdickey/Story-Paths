@@ -15,20 +15,22 @@ type AppRoutingConfig = {
 
 const RoutingConfig: AppRoutingConfig = {
   initialRouteName: 'Home',
+  // common screen options
   screenOptions: {
     headerTitleAlign: 'center',
+    headerStyle: {
+      backgroundColor: '#7A88F5',
+    },
+    headerTintColor: '#FFF',
+    headerTitleStyle: {
+      fontWeight: 'bold',
+    },
   },
+  // screen specific options
   routes: {
     Home: {
       options: {
         title: 'Story Paths',
-        headerStyle: {
-          backgroundColor: '#7A88F5',
-        },
-        headerTintColor: '#FFF',
-        headerTitleStyle: {
-          fontWeight: 'bold',
-        },
       },
     },
     LoadingStory: { options: {} },
