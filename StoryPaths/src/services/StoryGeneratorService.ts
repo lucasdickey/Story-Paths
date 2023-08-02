@@ -26,9 +26,11 @@ function generatePrompt({
     2) a villain who is a ${villain},
     3) set in a ${location} location/setting,
     4) suitable for a child of ${age} years old, and
-    5) in the voice of ${voice}.
+    5) in the voice of ${voice}. Please do not reference the original "in the voice of authoer" either on outupt.
   `;
 }
+
+// Add back in JSON formatting details above later to the prompt.
 
 const createStory = async (prompt: StoryPromptParams) => {
   const response = await OpenAiService.createCompletion({
