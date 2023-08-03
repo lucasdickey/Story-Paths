@@ -1,13 +1,13 @@
 import * as React from 'react';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import ScreenMapping from 'screens/ScreenMapping';
-import RoutingConfig from 'config/data/routes';
-import type { RouteParamList } from 'config/data/route-params';
+import RoutingConfig from '@config/data/routes';
+import { useNavigation as useNav } from '@react-navigation/native';
+import ScreenMapping from '@navigation/ScreenMapping';
+import type { RouteParamList } from '@config/data/route-params';
 import type {
   NativeStackScreenProps,
   NativeStackNavigationProp,
 } from '@react-navigation/native-stack';
-import { useNavigation as useNav } from '@react-navigation/native';
 
 export type StackScreenProps<T extends keyof RouteParamList> =
   NativeStackScreenProps<RouteParamList, T>;

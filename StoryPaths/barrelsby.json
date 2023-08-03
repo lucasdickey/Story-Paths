@@ -1,0 +1,7 @@
+{
+  "directory": ["./src/screens"],
+  "delete": true,
+  "exclude": [".*.test.(ts|tsx)$"],
+  "exportDefault": true,
+  "singleQuotes": true
+}

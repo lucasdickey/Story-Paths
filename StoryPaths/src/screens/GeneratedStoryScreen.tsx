@@ -23,11 +23,11 @@ Future future features:
 
 import React from 'react';
 import { Text, View } from 'react-native';
-import type { StackScreenProps } from 'navigation/StackNavigator';
+import type { StackScreenProps } from '@navigation/StackNavigator';
 
-type Props = StackScreenProps<'GeneratedStory'>;
-
-export default function GeneratedStoryScreen({ route }: Props): JSX.Element {
+export default function GeneratedStoryScreen({
+  route,
+}: StackScreenProps<'GeneratedStory'>): JSX.Element {
   const { story } = route.params;
 
   return (

@@ -1,14 +1,12 @@
 import React, { useEffect } from 'react';
 import { ScrollView, Text, View } from 'react-native';
-import { StoryGeneratorService } from 'services/StoryGeneratorService';
-import type { StackScreenProps } from 'navigation/StackNavigator';
-
-type Props = StackScreenProps<'LoadingStory'>;
+import { StoryGeneratorService } from '@services/StoryGeneratorService';
+import type { StackScreenProps } from '@navigation/StackNavigator';
 
 export default function LoadingStoryScreen({
   navigation,
   route,
-}: Props): JSX.Element {
+}: StackScreenProps<'LoadingStory'>): JSX.Element {
   const { name, villain, location, age, voice } = route.params;
 
   useEffect(() => {

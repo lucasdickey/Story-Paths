@@ -2,10 +2,10 @@ import React, { useState } from 'react';
 import { View, StyleSheet } from 'react-native';
 import StoryFieldInput, {
   StoryFieldInputProps,
-} from 'components/StoryFieldInput';
-import StoryButton from 'components/StoryButton';
-import type { StoryPromptParams } from 'services/StoryGeneratorService';
-import { useNavigation } from 'navigation/StackNavigator';
+} from '@components/StoryFieldInput';
+import StoryButton from '@components/StoryButton';
+import type { StoryPromptParams } from '@services/StoryGeneratorService';
+import { useNavigation } from '@navigation/StackNavigator';
 
 type StoryFormInputs = {
   [Property in keyof StoryPromptParams]: string | undefined;

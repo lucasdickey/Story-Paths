@@ -1,5 +1,5 @@
 import { NativeStackNavigationOptions } from '@react-navigation/native-stack';
-import type { RouteParamList } from './route-params';
+import type { RouteParamList } from '@config/data/route-params';
 
 type AppRoutingConfig = {
   initialRouteName: keyof RouteParamList;

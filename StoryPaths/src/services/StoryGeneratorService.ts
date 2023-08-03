@@ -1,4 +1,4 @@
-import { OpenAiService } from 'services/OpenAiService';
+import { OpenAiService } from '@services/OpenAiService';
 
 const STORY_GENERATOR_MODEL = 'text-davinci-003';
 const STORY_GENERATOR_MAX_TOKENS = 1024;
