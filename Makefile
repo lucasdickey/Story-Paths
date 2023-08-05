@@ -13,10 +13,13 @@ npm-install:
 update-routes:
 	(cd StoryPaths && ./scripts/generate-screens-barrels.sh)
 
-run-android: update-routes
+reset-watchman:
+	watchman watch-del $(shell pwd)/StoryPaths; watchman watch-project $(shell pwd)/StoryPaths
+
+run-android: update-routes reset-watchman
 	(cd StoryPaths && npm run android)
 
-run-ios:
+run-ios: update-routes reset-watchman
 	(cd StoryPaths && npm run ios)
 
 setup: clean npm-install update-routes
