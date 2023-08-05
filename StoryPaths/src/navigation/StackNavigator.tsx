@@ -3,7 +3,7 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import RoutingConfig from '@config/data/routes';
 import { useNavigation as useNav } from '@react-navigation/native';
 import ScreenMapping from '@navigation/ScreenMapping';
-import type { RouteParamList } from '@config/data/route-params';
+import type { RouteParamList } from '@screens/route-params';
 import type {
   NativeStackScreenProps,
   NativeStackNavigationProp,

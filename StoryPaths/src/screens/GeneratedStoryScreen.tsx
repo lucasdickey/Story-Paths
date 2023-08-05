@@ -25,6 +25,10 @@ import React from 'react';
 import { Text, View } from 'react-native';
 import type { StackScreenProps } from '@navigation/StackNavigator';
 
+export type GeneratedStoryRouteParams = {
+  story: string;
+};
+
 export default function GeneratedStoryScreen({
   route,
 }: StackScreenProps<'GeneratedStory'>): JSX.Element {

@@ -2,6 +2,9 @@ import React, { useEffect } from 'react';
 import { ScrollView, Text, View } from 'react-native';
 import { StoryGeneratorService } from '@services/StoryGeneratorService';
 import type { StackScreenProps } from '@navigation/StackNavigator';
+import type { StoryPromptParams } from '@services/StoryGeneratorService';
+
+export type LoadingStoryRouteParams = StoryPromptParams;
 
 export default function LoadingStoryScreen({
   navigation,

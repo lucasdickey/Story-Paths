@@ -8,7 +8,7 @@
     "lint": "eslint .",
     "start": "react-native start",
     "test": "jest",
-    "generate-barrels": "barrelsby -c barrelsby.json"
+    "generate-barrels:screens": "barrelsby -c barrelsby.screens.json"
   },
   "dependencies": {
     "@react-navigation/native": "^6.1.7",

@@ -3,5 +3,6 @@
   "delete": true,
   "exclude": [".*.test.(ts|tsx)$"],
   "exportDefault": true,
-  "singleQuotes": true
+  "singleQuotes": true,
+  "noHeader": true
 }

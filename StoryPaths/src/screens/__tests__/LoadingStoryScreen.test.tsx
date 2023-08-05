@@ -3,7 +3,7 @@ import { render, waitFor } from '@testing-library/react-native';
 import { StoryGeneratorService } from '@services/StoryGeneratorService';
 import LoadingStoryScreen from '@screens/LoadingStoryScreen';
 import { RouteProp } from '@react-navigation/native';
-import { RouteParamList } from '@config/data/route-params';
+import { RouteParamList } from '@screens/route-params';
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 
 jest.mock('@services/StoryGeneratorService');
