@@ -1,12 +1,18 @@
 import { NativeStackNavigationOptions } from '@react-navigation/native-stack';
 import type { RouteParamList } from '@screens/route-params';
+import type { StackScreenProps } from '@navigation/StackNavigator';
 
 type AppRoutingConfig = {
   initialRouteName: keyof RouteParamList;
   screenOptions: NativeStackNavigationOptions;
   routes: {
     [Property in keyof RouteParamList]: {
-      options: NativeStackNavigationOptions;
+      options:
+        | NativeStackNavigationOptions
+        | (({
+            navigation,
+            route,
+          }: StackScreenProps<any>) => NativeStackNavigationOptions);
     };
   };
 };
@@ -31,8 +37,16 @@ const RoutingConfig: AppRoutingConfig = {
         title: 'Story Paths',
       },
     },
-    LoadingStory: { options: {} },
-    GeneratedStory: { options: {} },
+    LoadingStory: {
+      options: {
+        title: 'Creating Your Story!',
+      },
+    },
+    GeneratedStory: {
+      options: ({ route }: StackScreenProps<'GeneratedStory'>) => ({
+        title: route.params.title,
+      }),
+    },
   },
 };
 

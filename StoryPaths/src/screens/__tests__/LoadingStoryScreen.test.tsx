@@ -7,6 +7,7 @@ import { RouteParamList } from '@screens/route-params';
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 
 jest.mock('@services/StoryGeneratorService');
+jest.mock('@components/icons/StoryPathsIcon');
 
 describe('LoadingStoryScreen', () => {
   const mockRoute = {
@@ -51,7 +52,10 @@ describe('LoadingStoryScreen', () => {
   });
 
   it('should call StoryGeneratorService.createStory with the correct parameters', async () => {
-    const mockGeneratedStory = 'Once upon a time...';
+    const mockGeneratedStory = {
+      title: 'Story',
+      story: 'Once upon a time...',
+    };
     (StoryGeneratorService.createStory as jest.Mock).mockResolvedValueOnce(
       mockGeneratedStory,
     );
@@ -71,7 +75,10 @@ describe('LoadingStoryScreen', () => {
   });
 
   it('should navigate to GeneratedStoryScreen with the generated story', async () => {
-    const mockGeneratedStory = 'Once upon a time...';
+    const mockGeneratedStory = {
+      title: 'Story',
+      story: 'Once upon a time...',
+    };
     (StoryGeneratorService.createStory as jest.Mock).mockResolvedValueOnce(
       mockGeneratedStory,
     );
@@ -80,9 +87,10 @@ describe('LoadingStoryScreen', () => {
         <LoadingStoryScreen navigation={mockNavigation} route={mockRoute} />,
       ),
     );
-    expect(mockNavigation.replace).toHaveBeenCalledWith('GeneratedStory', {
-      story: mockGeneratedStory,
-    });
+    expect(mockNavigation.replace).toHaveBeenCalledWith(
+      'GeneratedStory',
+      mockGeneratedStory,
+    );
   });
 
   it('should log an error if StoryGeneratorService.createStory throws an error', async () => {

@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
-import { ScrollView, Text, View } from 'react-native';
+import { StyleSheet, Text, View } from 'react-native';
+import { RotatingStoryPathsIcon } from '@components/icons/StoryPathsIcon';
 import { StoryGeneratorService } from '@services/StoryGeneratorService';
 import type { StackScreenProps } from '@navigation/StackNavigator';
 import type { StoryPromptParams } from '@services/StoryGeneratorService';
@@ -21,7 +22,7 @@ export default function LoadingStoryScreen({
       voice: voice,
     })
       .then(generatedStory => {
-        navigation.replace('GeneratedStory', { story: generatedStory });
+        navigation.replace('GeneratedStory', generatedStory);
       })
       .catch(error => {
         console.error('Error', error);
@@ -29,10 +30,21 @@ export default function LoadingStoryScreen({
   }, [name, villain, location, age, voice, navigation]);
 
   return (
-    <View>
-      <ScrollView contentInsetAdjustmentBehavior="automatic">
+    <View style={styles.container}>
+      <RotatingStoryPathsIcon />
+      <View style={styles.textContainer}>
         <Text>Loading Story</Text>
-      </ScrollView>
+      </View>
     </View>
   );
 }
+
+const styles = StyleSheet.create({
+  container: {
+    justifyContent: 'center',
+    alignContent: 'center',
+  },
+  textContainer: {
+    alignItems: 'center',
+  },
+});

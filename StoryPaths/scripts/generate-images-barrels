@@ -1,0 +1,24 @@
+#!/usr/bin/perl
+use warnings;
+use strict;
+
+my $IMAGES_DIRECTORY = "src/assets/images/";
+my $IMAGES_FILE = "src/assets/images.tsx";
+
+unlink($IMAGES_FILE);
+
+opendir my $DIR, $IMAGES_DIRECTORY or die "Cannot open directory: $!";
+my @FILES = sort readdir $DIR;
+closedir $DIR;
+
+open my $IMAGES_FILE_HANDLE, '>', $IMAGES_FILE or die "Cannot open $IMAGES_FILE: $!";
+
+foreach(@FILES) {
+  if ($_ =~ m/\.png$/) {
+    (my $filename = $_) =~ s/\.png$//;
+    (my $variable_name = $filename) =~ s/(^|-)(\w)/\U$2/g;
+    print $IMAGES_FILE_HANDLE "export const $variable_name = require('./images/$filename.png');\n";
+  }
+}
+
+close $IMAGES_FILE_HANDLE;

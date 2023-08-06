@@ -24,10 +24,9 @@ Future future features:
 import React from 'react';
 import { Text, View } from 'react-native';
 import type { StackScreenProps } from '@navigation/StackNavigator';
+import type { StoryResponse } from '@services/StoryGeneratorService';
 
-export type GeneratedStoryRouteParams = {
-  story: string;
-};
+export type GeneratedStoryRouteParams = StoryResponse;
 
 export default function GeneratedStoryScreen({
   route,

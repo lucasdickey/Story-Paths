@@ -13,6 +13,11 @@ export type StoryPromptParams = {
   voice: string;
 };
 
+export type StoryResponse = {
+  title: string;
+  story: string;
+};
+
 function generatePrompt({
   name,
   villain,
@@ -27,10 +32,19 @@ function generatePrompt({
     3) set in a ${location} location/setting,
     4) suitable for a child of ${age} years old, and
     5) in the voice of ${voice}. Please do not reference the original "in the voice of author" either on outupt.
+
+    The output should be in JSON format with ASCII characters, with the following fields:
+    1) title,
+    2) story
   `;
 }
 
-// Add back in JSON formatting details above later to the prompt.
+const parseResponse = (response: string) => {
+  console.log(response);
+  const story: StoryResponse = JSON.parse(response);
+
+  return story;
+};
 
 const createStory = async (prompt: StoryPromptParams) => {
   const response = await OpenAiService.createCompletion({
@@ -41,7 +55,7 @@ const createStory = async (prompt: StoryPromptParams) => {
     n: STORY_GENERATOR_N,
   });
 
-  return response.choices[0].text;
+  return parseResponse(response.choices[0].text);
 };
 
 export const StoryGeneratorService = {
