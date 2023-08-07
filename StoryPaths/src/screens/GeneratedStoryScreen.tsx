@@ -30,7 +30,7 @@ export type GeneratedStoryRouteParams = StoryResponse;
 
 function paragraph(text: string, index: number) {
   return (
-    <Text key={index} style={styles.container}>
+    <Text key={index} style={styles.paragraphContainer}>
       {text}
     </Text>
   );
@@ -45,7 +45,7 @@ export default function GeneratedStoryScreen({
 }
 
 const styles = StyleSheet.create({
-  container: {
+  paragraphContainer: {
     paddingTop: 10,
     paddingBottom: 10,
   },
