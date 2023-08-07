@@ -15,7 +15,7 @@ export type StoryPromptParams = {
 
 export type StoryResponse = {
   title: string;
-  story: string;
+  story: string[];
 };
 
 function generatePrompt({
@@ -33,15 +33,17 @@ function generatePrompt({
     4) suitable for a child of ${age} years old, and
     5) in the voice of ${voice}. Please do not reference the original "in the voice of author" either on outupt.
 
-    The output should be in JSON format with ASCII characters, with the following fields:
+    The output should be in JSON format, with the following fields:
     1) title,
     2) story
+
+    The story should be an array of paragraphs, with each paragraph being a string.
   `;
 }
 
 const parseResponse = (response: string) => {
-  console.log(response);
-  const story: StoryResponse = JSON.parse(response);
+  const filteredResponse = response.replaceAll(/[\u0000-\u001f]*/gi, ''); // eslint-disable-line no-control-regex
+  const story: StoryResponse = JSON.parse(filteredResponse);
 
   return story;
 };

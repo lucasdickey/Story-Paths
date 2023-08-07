@@ -29,6 +29,7 @@ const RoutingConfig: AppRoutingConfig = {
     headerTitleStyle: {
       fontWeight: 'bold',
     },
+    headerBackTitleVisible: false,
   },
   // screen specific options
   routes: {

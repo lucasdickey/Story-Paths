@@ -22,20 +22,31 @@ Future future features:
 */
 
 import React from 'react';
-import { Text, View } from 'react-native';
+import { StyleSheet, Text, View } from 'react-native';
 import type { StackScreenProps } from '@navigation/StackNavigator';
 import type { StoryResponse } from '@services/StoryGeneratorService';
 
 export type GeneratedStoryRouteParams = StoryResponse;
+
+function paragraph(text: string, index: number) {
+  return (
+    <Text key={index} style={styles.container}>
+      {text}
+    </Text>
+  );
+}
 
 export default function GeneratedStoryScreen({
   route,
 }: StackScreenProps<'GeneratedStory'>): JSX.Element {
   const { story } = route.params;
 
-  return (
-    <View>
-      <Text>{story}</Text>
-    </View>
-  );
+  return <View>{story.map((text, index) => paragraph(text, index))}</View>;
 }
+
+const styles = StyleSheet.create({
+  container: {
+    paddingTop: 10,
+    paddingBottom: 10,
+  },
+});
