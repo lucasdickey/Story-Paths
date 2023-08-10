@@ -1,8 +1,19 @@
 import React from 'react';
 import * as Screens from '@screens';
+import { NativeStackNavigationOptions } from '@react-navigation/native-stack';
+import type { StackScreenProps } from '@navigation/StackNavigator';
+
+type Screen = React.FunctionComponent<any> & {
+  options:
+    | NativeStackNavigationOptions
+    | (({
+        navigation,
+        route,
+      }: StackScreenProps<any>) => NativeStackNavigationOptions);
+};
 
 type ScreenMap = {
-  [screen: string]: React.FunctionComponent<any>;
+  [screen: string]: Screen;
 };
 
 const convertScreenName = (screenName: string) => {

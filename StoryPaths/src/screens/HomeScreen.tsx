@@ -5,6 +5,10 @@ import type { StackScreenProps } from '@navigation/StackNavigator';
 
 export type HomeRouteParams = undefined;
 
+HomeScreen.options = {
+  title: 'Story Paths',
+};
+
 export default function HomeScreen({}: StackScreenProps<'Home'>): JSX.Element {
   return (
     <View>

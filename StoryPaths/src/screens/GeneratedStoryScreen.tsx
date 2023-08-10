@@ -28,6 +28,12 @@ import type { StoryResponse } from '@services/StoryGeneratorService';
 
 export type GeneratedStoryRouteParams = StoryResponse;
 
+GeneratedStoryScreen.options = ({
+  route,
+}: StackScreenProps<'GeneratedStory'>) => ({
+  title: route.params.title,
+});
+
 function paragraph(text: string, index: number) {
   return (
     <Text key={index} style={styles.paragraphContainer}>

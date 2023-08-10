@@ -1,13 +1,13 @@
 import * as React from 'react';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import RoutingConfig from '@config/data/routes';
 import { useNavigation as useNav } from '@react-navigation/native';
 import ScreenMapping from '@navigation/ScreenMapping';
-import type { RouteParamList } from '@screens/route-params';
+import type { RouteParamList } from '@navigation/types';
 import type {
   NativeStackScreenProps,
   NativeStackNavigationProp,
 } from '@react-navigation/native-stack';
+import { NativeStackNavigationOptions } from '@react-navigation/native-stack';
 
 export type StackScreenProps<T extends keyof RouteParamList> =
   NativeStackScreenProps<RouteParamList, T>;
@@ -24,17 +24,27 @@ const stackScreen = (screenName: string) => {
       key={screenName}
       name={screenName as keyof RouteParamList}
       component={ScreenMapping[screenName]}
-      options={RoutingConfig.routes[screenName as keyof RouteParamList].options}
+      options={ScreenMapping[screenName].options}
     />
   );
 };
 
+const screenOptions: NativeStackNavigationOptions = {
+  headerTitleAlign: 'center',
+  headerStyle: {
+    backgroundColor: '#7A88F5',
+  },
+  headerTintColor: '#FFF',
+  headerTitleStyle: {
+    fontWeight: 'bold',
+  },
+  headerBackTitleVisible: false,
+};
+
 export default function StackNavigator(): JSX.Element {
   return (
-    <Stack.Navigator
-      initialRouteName={RoutingConfig.initialRouteName}
-      screenOptions={RoutingConfig.screenOptions}>
-      {Object.keys(RoutingConfig.routes).map(stackScreen)}
+    <Stack.Navigator initialRouteName="Home" screenOptions={screenOptions}>
+      {Object.keys(ScreenMapping).map(stackScreen)}
     </Stack.Navigator>
   );
 }

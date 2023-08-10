@@ -7,6 +7,10 @@ import type { StoryPromptParams } from '@services/StoryGeneratorService';
 
 export type LoadingStoryRouteParams = StoryPromptParams;
 
+LoadingStoryScreen.options = {
+  title: 'Creating Your Story!',
+};
+
 export default function LoadingStoryScreen({
   navigation,
   route,

@@ -26,6 +26,8 @@
 			"",
 			"};",
 			"",
+			"$1Screen.options = {};",
+			"",
 			"export default function $1Screen({",
 			"  navigation,",
   		"  route,",
