@@ -1,7 +1,7 @@
 import React from 'react';
 import * as Screens from '@screens';
 import { NativeStackNavigationOptions } from '@react-navigation/native-stack';
-import type { StackScreenProps } from '@navigation/StackNavigator';
+import type { StackScreenProps } from '@navigation/types';
 
 type Screen = React.FunctionComponent<any> & {
   options:

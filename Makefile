@@ -1,4 +1,9 @@
 clean:
+	-(cd StoryPaths/android && ./gradlew clean)
+	-(cd StoryPaths/ios && rm -rf build/)
+	-(cd StoryPaths/ios && rm -rf Pods/)
+	-(cd StoryPaths/ios && xcodebuild clean)
+	-(cd StoryPaths && rm -rf vendor/)
 	(cd StoryPaths && rm -rf node_modules/)
 
 lint:
@@ -26,6 +31,7 @@ run-ios: update-routes reset-watchman
 	(cd StoryPaths && npm run ios)
 
 setup: clean npm-install update-routes update-image-exports
+	(cd StoryPaths/ios && bundle install && bundle exec pod install)
 
 test:
 	(cd StoryPaths && npm test)

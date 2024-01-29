@@ -4,13 +4,9 @@ import { useNavigation as useNav } from '@react-navigation/native';
 import ScreenMapping from '@navigation/ScreenMapping';
 import type { RouteParamList } from '@navigation/types';
 import type {
-  NativeStackScreenProps,
   NativeStackNavigationProp,
 } from '@react-navigation/native-stack';
 import { NativeStackNavigationOptions } from '@react-navigation/native-stack';
-
-export type StackScreenProps<T extends keyof RouteParamList> =
-  NativeStackScreenProps<RouteParamList, T>;
 
 export function useNavigation() {
   return useNav<NativeStackNavigationProp<RouteParamList>>();

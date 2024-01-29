@@ -23,7 +23,7 @@ Future future features:
 
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
-import type { StackScreenProps } from '@navigation/StackNavigator';
+import type { StackScreenProps } from '@navigation/types';
 import type { StoryResponse } from '@services/StoryGeneratorService';
 
 export type GeneratedStoryRouteParams = StoryResponse;

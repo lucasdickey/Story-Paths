@@ -10,8 +10,13 @@ npm run generate-barrels:screens
 sed -i '' '/export \* from/d' $SCREENS_INDEX_FILE
 
 echo "Generating $SCREENS_TYPES_FILE ..."
-sed "s|export { default as \(.*\)Screen } from '\.\/\(.*\)';|import type { \1RouteParams } from '@screens\/\2';|g" $SCREENS_INDEX_FILE > $SCREENS_TYPES_FILE
+echo "import type { NativeStackScreenProps } from '@react-navigation/native-stack';" > $SCREENS_TYPES_FILE
+sed "s|export { default as \(.*\)Screen } from '\.\/\(.*\)';|import type { \1RouteParams } from '@screens\/\2';|g" $SCREENS_INDEX_FILE >> $SCREENS_TYPES_FILE
 echo "" >> $SCREENS_TYPES_FILE
 echo "export type RouteParamList = {" >> $SCREENS_TYPES_FILE
 sed "s|export { default as \(.*\)Screen } from '\.\/\(.*\)';|  \1: \1RouteParams;|g" $SCREENS_INDEX_FILE >> $SCREENS_TYPES_FILE
 echo "};" >> $SCREENS_TYPES_FILE
+echo "" >> $SCREENS_TYPES_FILE
+echo "export type StackScreenProps<T extends keyof RouteParamList> =" >> $SCREENS_TYPES_FILE
+echo "  NativeStackScreenProps<RouteParamList, T>;" >> $SCREENS_TYPES_FILE
+echo "Done!"

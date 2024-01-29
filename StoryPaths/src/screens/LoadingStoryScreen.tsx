@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import { RotatingStoryPathsIcon } from '@components/icons/StoryPathsIcon';
 import { StoryGeneratorService } from '@services/StoryGeneratorService';
-import type { StackScreenProps } from '@navigation/StackNavigator';
+import type { StackScreenProps } from '@navigation/types';
 import type { StoryPromptParams } from '@services/StoryGeneratorService';
 
 export type LoadingStoryRouteParams = StoryPromptParams;

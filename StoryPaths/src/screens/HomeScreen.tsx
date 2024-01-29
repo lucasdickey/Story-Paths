@@ -1,7 +1,7 @@
 import React from 'react';
 import { ScrollView, View } from 'react-native';
 import StoryForm from '@components/StoryForm';
-import type { StackScreenProps } from '@navigation/StackNavigator';
+import type { StackScreenProps } from '@navigation/types';
 
 export type HomeRouteParams = undefined;
 
